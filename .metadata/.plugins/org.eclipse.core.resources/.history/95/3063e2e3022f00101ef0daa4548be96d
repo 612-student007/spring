@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>show!</title>
+</head>
+<body>
+	<h1>自己紹介</h1>
+	<table border="1">
+	<tr><th>名前</th><th><td th:text="${name}"></td><th></tr>
+	<tr><th>年齢</th><th><td th:text="${age}"></td><th></tr>
+	<tr><th>趣味</th><th><td th:text="${hobby}"></td><th></tr>
+	</table>
+</body>
+</html>

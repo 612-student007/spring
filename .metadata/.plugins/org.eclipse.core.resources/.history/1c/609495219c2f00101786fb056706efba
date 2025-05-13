@@ -1,0 +1,26 @@
+package com.example.demo.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+@Controller
+public class ItemController {
+	@GetMapping("/")
+	public String index() {
+		return "itemForm";
+	}
+
+	@PostMapping("/item")
+	public String confirm(// リクエストパラメータの取得（初期値あり）
+			@RequestParam(name = "name", defaultValue = "未設定") String name,
+			@RequestParam(name = "price", defaultValue = "100") int price,
+			Model model) {
+		
+		model.addAttribute("name", name);
+		model.addAttribute("price", price);
+		return "itemConfirm";
+	}
+}

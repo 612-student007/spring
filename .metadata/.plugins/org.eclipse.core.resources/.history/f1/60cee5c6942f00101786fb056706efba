@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>index!</title>
+</head>
+<body>
+	
+<p>情報を入力してください</p>
+
+
+<form action="/show" method="post"><!--form actionの所に遷移先のURLを入れる-->
+<dt>名前：</dt>
+	<dd>
+		<input type="text" name="name">
+	</dd>
+	
+<dt>年齢：</dt>
+	<dd>
+		<input type="text" name="age">
+	</dd>
+	
+<h2>趣味：</h2>
+		<input type="text" name="hobby">
+		<!--<textarea name="hobby" cols="20" rows="3"></textarea>-->
+		<p><button>送信</button></p>
+	</form>
+	
+</body>
+</html>

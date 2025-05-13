@@ -1,0 +1,16 @@
+package com.example.demo.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller// アノテーション(annotation):ソースコードだけではコンパイラに伝えられない不足情報の記述
+public class HelloController {
+//	
+//	hello.htmlを表示する
+//  @return Thymeleafテンプレート名
+
+	@GetMapping("/")//GETメソッドでURL「/」でアクセスされた場合に呼び出される：「/」 「http://
+	public String index() {
+		return "hello";
+	}
+}

@@ -1,0 +1,39 @@
+package com.example.demo.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+@Controller
+public class ContactController {
+	@GetMapping("/contact")
+	public String index() {
+		return "contactForm";
+	}
+
+	@PostMapping("/contact")
+	public String contact(
+			@RequestParam(name = "name", defaultValue = "") String name,
+			@RequestParam(name = "email", defaultValue = "") String email,
+			Model model) {
+
+		if (name.isEmpty()) {
+			model.addAttribute("message", "名前は必須です");
+			return "contactForm";
+		}
+		if (name.length() > 21) {
+			model.addAttribute("message", "名前は20文字以内で入力してください");
+			return "contactForm";
+		}
+		if (email.isEmpty()) {
+			model.addAttribute("message2", "メールアドレスの入力は必須です");
+		}
+
+		model.addAttribute("name", name);
+		model.addAttribute("email", email);
+		return "contactResult";
+	}
+
+}

@@ -1,0 +1,40 @@
+package com.example.demo.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+@Controller
+public class HelloController {
+	@GetMapping("/")
+	public String index() {
+		return "index";//表示するHTML(遷移先HTML)のファイルベース名
+	}
+
+	/*@GetMapping("/hello")
+	public String input() {
+		return "input";
+	}*/
+
+	@PostMapping("/show")
+	public String show(
+			@RequestParam("name") String name,
+			@RequestParam("age") int age,
+			@RequestParam("hobby") String hobby,
+			Model model//遷移先画面に情報を引き継ぐために必要なもの
+	) {
+		model.addAttribute("name", name);
+		model.addAttribute("age", age);
+		model.addAttribute("hobby", hobby);
+		return "show";
+	}
+
+	/*@PostMapping("/hello")
+	public String indexBypost(
+			@RequestParam("msg") String message,
+			Model model) {
+		model.addAttribute("memo", message);
+		return "index";*/
+}
