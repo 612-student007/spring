@@ -46,6 +46,7 @@ public class ContactController {
 			model.addAttribute("errors", errors);
 			return "contactform";
 		}
+
 		model.addAttribute("genre", genre);
 		model.addAttribute("langList", langList);
 		model.addAttribute("detail", detail);

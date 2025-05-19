@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>結果</title>
+</head>
+<body>
+<h1>内容確認</h1>
+<form action ="/account" method ="post">
+<table border="1">
+	<tr>
+		<th>名前</th>
+		<td>
+			[[${account.name}]]
+		</td>
+	</tr>
+	<tr>
+		<th>メールアドレス</th>
+		<td>
+			[[${account.address}]]
+		</td>
+	</tr>
+	<tr>
+		<th>パスワード</th>
+		<td>
+			[[${account.pass}]]
+		</td>
+	</tr>
+</table>
+<button>登録</button>
+</form>
+</body>
+</html>

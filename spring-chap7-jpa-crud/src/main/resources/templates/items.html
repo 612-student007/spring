@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>商品一覧</title>
+</head>
+<body>
+	<h1>商品一覧</h1>
+
+	<a href="/items">全商品</a>
+	<a th:each="category:${categories}" 
+	   th:href="@{/items(categoryId=${category.id})}" 
+	   th:text="${category.name}"
+	   style="margin-right: 5px;"></a>
+	   <!--th:href="${'/items?categoryId=' + category.id}" 12行目の別解-->
+	<table border="1">
+		<tr>
+			<th>商品ID</th>
+			<th>商品名</th>
+			<th>値段</th>
+			<th>更新</th>
+			<th>削除</th>
+		</tr>
+		<tr th:each="item:${items}">
+			<td th:text="${item.id}"></td>
+			<td th:text="${item.name}"></td>
+			<td th:text="${item.price}"></td>
+			<td>
+				<form th:action="@{/items/{itemId}/edit(itemId=${item.id})}" method="get">
+					<!--'/items/' + ${item.id} + '/edit'別解-->
+					<button>更新</button>
+				</form>
+			</td>
+			<td>
+			<form th:action="@{/items/{itemId}/delete(itemId=${item.id})}" method="post">
+			<button>削除</button>
+			</form>
+			</td>
+		</tr>
+	</table>
+	<a href="/items/add">新規登録</a>
+</body>
+</html>
